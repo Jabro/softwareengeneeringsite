@@ -1,0 +1,89 @@
+@font-face {
+  font-family: 'Gudea';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Gudea Italic'), local('Gudea-Italic'), url(http://themes.googleusercontent.com/static/fonts/gudea/v1/7K8okIOV072GIwnptze9lg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Gudea';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Gudea Bold'), local('Gudea-Bold'), url(http://themes.googleusercontent.com/static/fonts/gudea/v1/6M2RKly85u67vSsXH0-zqvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+@font-face {
+  font-family: 'Gudea';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gudea'), url(http://themes.googleusercontent.com/static/fonts/gudea/v1/Z6xYy_2MlN1cUISkeodEPA.woff) format('woff');
+}
+
+
+body {
+	font-family:Gudea;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#bar {
+	background-color: #000;
+	top: 0px;
+	background: #000;
+}
+
+ul.googleTab {
+	list-style: none;
+	font-size:18px;
+	color:#ccc;
+	overflow:hidden;
+	padding-left: 20%;
+	padding-right: 20%;
+	margin: 0;
+}
+ul.googleTab li	{
+	float:left;
+	padding: 15px 8px;
+	border-top:solid 3px #000;	
+}
+ul.googleTab li.active {
+	color:#eee;
+	font-weight:bold;
+}
+ul.googleTab li:hover {
+	border-top: solid 3px #fff;
+	cursor:pointer;
+}
+ul.googleTab li > a {
+	text-decoration:none;
+	color:inherit;
+}
+
+
+#content {
+	position:absolute;
+	min-width: 600px;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 50px;
+}
+#content .question {
+	font-style: italic;
+	color: #777;
+}
+
+a {
+	color: #000;
+	
+	text-decoration: underline;
+}
+a:hover {
+	color: #777;
+	text-decoration: underline;
+}
+
+
+
+
+.panic {
+	color: red;
+}

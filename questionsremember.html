@@ -1,0 +1,167 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Software Engeneering Gamified</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+  </head>
+
+  <body>
+    <div id="bar">
+      <ul class="googleTab">
+        <li><a href="home.html">Home</a></li>
+        <li class="active"> <a href="questionsremember.html">Remember questions</a></li>
+        <li><a href="questionsexam.html">Exam questions</a></li>
+        <li><a href="about.html">About me</a></li>
+      </ul>
+    </div>
+
+    <div id="content">
+      <h1>Software Engeneering Gamified</h1>
+      <h2>Software Engeneering</h2>
+      <h3>Patterns</h3>
+      <ol>
+        <li>
+          <p class="question">
+            Name and explain three Object Oriented Principles that are important in code design and thereby also in the use of patterns.
+          </p>
+          <p class="answer">
+            <b>inheritance</b>: Is-a relationship. (abstract) superclasses hold data and methods. These methods are equal to all specific implementations.<br>
+            <b>polymorphism</b>: Use of methods or classes that specific shape is not known by the caller. But with well defined method signature or class inheritance, it is possible to use specific implementations.<br>
+            <b>encapsulation</b>: Hiding data of the specific implementation by restricting the access. Accessors can access the data via predifined methods. These methods are defined by the class/object holding the data.<br>
+            <b>abstraction</b>: Defining abstraction in classes, methods, types, interfaces and functionality reduces complexity.
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            What is the difference between a Has-A and an Is-A relationship in various patterns. Name examples from a pattern that you know.
+          </p>
+          <p class="answer">
+            <b>Is-a</b>: Inheritance. The (abstract) parent class can only exist if there is a specific implementation. With A Building only exists if I create a House (that extends the building). A ski only exists if I create a Telemark, Snowboard or Carving ski.<br>
+            <b>Has-a</b>: Relationship. The type that holds a bunch of other objects, can hold 0, 1 or much more objects. The existence of the object does not depend on the object it holds. 1-200 people can enter a train. But the trains does not disappear if there is no person in the train.
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            How many of these explanations can you match to a pattern that you know about: 1. Encapsulate interchangeable behaviors and use delegation to decide which behavior to use 2. Subclasses decide how to implement steps in an algorithm 3. Subclasses decide which concrete classes to create
+          </p>
+          <p class="answer">
+            1. Describes the <b>strategy</b> pattern: A class can select the a behaviour by selecting a specific implementation (... a specific strategy).<br>
+            2. Describes the <b>template</b> pattern: Abstract superclass defines the steps of an algorithm. The class represents every step with an abstract method. The subclass just has to implement the behaviour of an algorithm step<br>
+            3. Describes the <b>factory</b> pattern: Object creation with method instead of Constructor. The caller does not need to know the specific implementation, just gets it returned through the abstract class/interface. See abstract factory for more info.
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            What is the difference between (1) Interface and (2) Abstract and (3) "normal" concrete classes?
+          </p>
+          <p class="answer">
+            <b>Interface</b>: method signature definition to implement<br>
+            <b>Abstract class</b>: Generalize behaviour and data in a class that can not be instanciated. Classes can extend the abstract class and they can (if they are not abstract) be instanciated. Can implement an Interface. Can extend abstract classes.<br>
+            <b>Normal class</b>: Can be instanciated. Can implement an Interface. Can inherit from an interface, an abstract class and a normal class.
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            What is the idea behind the Singleton Pattern. How does it do that?
+          </p>
+          <p class="answer">
+            Is used if you only want to have one concrete instance of a class. It does that by providing a static access method to a private static class attribute of the class itself. You can only access the concrete instance by calling the method, wich will return you the one instance, hold by the class in a static context. 
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            You may or may not have prepared the Adapter pattern. Either way, if you hear the name, what could it possibly do and how could you go about separating the issues in two classes with an adapater class?  
+          </p>
+          <p class="answer">
+            Can "wrap" data structures. It "plugs" and can wrap a data structure from A to B for example. 
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            Describe a pattern of your choice. Since you cannot draw the diagram here, explain it in words (so that someone else could draw it). Explain what it does ie. when to use it. Gang of Four Design Pattern always has a part called participants, where their function is explained.
+          </p>
+          <p class="answer">
+            <b>Factory</b>: Deals with object creation. It is a creational pattern.
+            Define an interface for creating an object. Let the the classes that implement the interface decide which class to instantiate. The Factory method lets a class defer instantiation to subclasses.
+          </p>
+        </li>
+      </ol>
+      <h3>Metrics</h3>
+      <ol>
+        <li>
+          <p class="question">
+            Many metrics can be extracted automatically from software. Name specific examples. However, what is the shortcoming of these automatically derived metrics?
+          </p>
+          <p class="answer">
+            A metric is a function which generates a numeric value from software code. It can be used to compare different software or to reveal bad programmed modules.<br>
+            <span class="panic"><b>balanced scorecard</b>: ????????????????????????????????????<br></span>
+            <b>test coverage</b>: percentage of the software that is coverd with unit tests.<br>
+            <b>lines of codes</b>: number of code lines for a method, class or module.<br>
+            <b>mccabe</b>: cyclomatic complexity. Complexity for of possible branches.<br>
+            <span class="panic"><b>cohesion</b>: Complexity of compositions in a module. Unstructured dependency graph.<br></span>
+            <span class="panic">WHAT IS THE DIFFERENCE BETWEEN COHESION AND COUPLING????</span>
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            Which metric tool are you using in your project. Which metric did you decide to look at in more detail to see how it works for you? Be specific in how the metric helped you to see a shortcoming in your code. What was wrong, how can you fix it, was the tool correct?
+          </p>
+          <p class="answer">
+            I used <a href="http://metrics.sourceforge.net/">metrics</a> for eclipse. Especially the cyclomatic complexity helped me to reduce the loc of methods. It also helped me to refactor my code, use more patterns and create a better structure in my project. For example I could split one existing test case into several test cases.
+          </p>
+        </li>
+        <li>
+          <p class="question"> 
+            There are lots of people who disagree on which metrics to use and whether or not to use them. Based only on the first paragraph in the following two posts, 
+            can you reason why metrics are important and why it is important to extract these automatically.
+          </p>
+          <p class="answer">
+            Automatic metrics generation is helpful. This is also the key essence of codinghorror.com. He mentions that it helped him alot to use simple metrics like method size, method parameters or loc of classes/methods. Furthermore he emphasizes with the use of test coverage. Metrics can never be bad, and help if you are able to interpret the data returned by the metrics tool. He warns to use metric values for punishment or reward. But he suggests to use the metrics differences (before and after) as a value for measurements like "how could we improve the algorithm".
+
+            mccabe discusses the use of metrics when working with outsourced teams. The values could give an overview about the quality of code. This could for example help the product manager to evaluate the result of outsourced teams.
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            There are several metrics that you should have come across while studying these. Out of these metrics choose 2 and describe what it means and what kinds of information about the software it reflects – you can use internet.
+          </p>
+          <p class="answer">
+            <b>loc</b>: Is an absolut value: lines of code in class/methode/programm. The lines of code in a specified range (method or class) in relation to another range (another method/class) can help to find bad software structures in the programm. Then a refactoring (with the use of appropriate software patterns  ) can help. It gets easier to identify such bad oo models. The absolute value of loc (of a software) can mislead because it is difficult to set two software projects in relation (do they really do the same -> is it worth to compare them?). LOC can also help to satisfy the "clean code" rules (like max 200 loc per class).<br>
+            <b>inheritance</b>: A lage amount of inheritance can indicate that "composition over inheritance" was sparesly used. A general refactoring and rethinking of the oo structure could help to tackle this problem.<br>
+            <b>complexity</b>: Complexity of algorithms (methods). mccabe indicates too much paths through the method/module.<br>
+            <span class="panic"><br>cohesion</b>: amount of dependencies</span>
+          </p>
+        </li>
+      </ol>
+      <h3>Testing<h3>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+<!-- 
+
+tempate for question: 
+
+<ol>
+
+
+
+<li>
+  <p class="question">
+          
+  </p>
+  <p class="answer">
+
+  </p>
+</li>
+
+ </ol>
+
+-->
+
+
