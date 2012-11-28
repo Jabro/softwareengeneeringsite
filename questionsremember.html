@@ -130,7 +130,8 @@
             <b>loc</b>: Is an absolut value: lines of code in class/methode/programm. The lines of code in a specified range (method or class) in relation to another range (another method/class) can help to find bad software structures in the programm. Then a refactoring (with the use of appropriate software patterns  ) can help. It gets easier to identify such bad oo models. The absolute value of loc (of a software) can mislead because it is difficult to set two software projects in relation (do they really do the same -> is it worth to compare them?). LOC can also help to satisfy the "clean code" rules (like max 200 loc per class).<br>
             <b>inheritance</b>: A lage amount of inheritance can indicate that "composition over inheritance" was sparesly used. A general refactoring and rethinking of the oo structure could help to tackle this problem.<br>
             <b>complexity</b>: Complexity of algorithms (methods). mccabe indicates too much paths through the method/module.<br>
-            <span class="panic"><br>cohesion</b>: amount of dependencies</span>
+            <span class="panic"><b>coupling</b>: amount of dependencies (logischer zusammenhang zwischen klassen/methoden/whatever???)<span><br>
+            <span class="panic"><br>cohesion</b>: von wie vielen methoden wird ein klassenattribut verwendet</span><br>
           </p>
         </li>
       </ol>
