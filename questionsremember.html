@@ -136,11 +136,160 @@
         </li>
       </ol>
       <h3>Testing<h3>
+      Coming soon...
+      <h2>Project Management</h2>
+      <h3>Process</h3>
+      <ol>
+        <li>
+          <p class="question">
+            Recall the diagram depicting the RUP methodology with the colored hills in multiple lines going across. Explain this diagram. X-axis, Y-axis, Regions, colored curves. Name three things that make RUP special in contrast to Waterfall process model.
+          </p>
+          <p class="answer">
+            RationUnifiedProcess<br>
+            Die X Achse representiert den <b>Zeitverlauf</b>. Auf der Y Achse sind die verschiedenen <b>Disziplinen</b> des Projekts aufgelistet. Je hoeher der Ausschlag fuer eine Disziplin, desto mehr Zeit wird gerade fuer diese Disziplin verwendet.<br>
+            Rup verwendet 4 grosse Phasen (Iterations):<br>
+            <ul>
+              <li>Inception</li>
+              <li>Elaboration</li>
+              <li>Construction</li>
+              <li>Transition</li>
+            </ul>
+            Die Iterationen koennen mehrmals durchlaufen werden. Die Disziplinen stehen im Mittelpunkt (Business Modeling, Requirements, Analyse & Design, Implementierung, Test, Deployment, Configuration Management, Project Management, Environment (=Infrastructure)).
+          </p>
+          <li>
+            <p class="question">
+              Explain how Scrum works, using some terminology from the method and explaining these        
+            </p>
+            <p class="answer">
+              Basiert auf der Idee des Self Organized Teams. Es gibt 3 Rollen:
+              <ul>
+                <li>Product Owner: Haelt den Kundenkontakt, fuehrt den backlog (Requirements)</li>
+                <li>Scrum Master: Kuemmert sich um die Methodik des Teams (z.b. Pair Programming)</li>
+                <li>Erledigt die eigentliche Arbeit, organisiert sich selbst</li>
+              </ul><br>
+              Nach jedem Sprint sollte eine "working software" ausgeliefert werden koennen. <br>
+              Daily Scrum ist das taegliche Treffen, bei dem sich das Team ueber den aktuellen Projektstatus (mithilfe der Plantafel mit Requirements und deren Status)  austauscht.
+            </p>
+          </li>
+          <li>
+            <p class="question">
+              What does Scrum NOT have that both RUP and Waterfall have in terms of overall project status?   
+            </p>
+            <p class="answer">
+              The <b>Document Driven Approach</b>: The creation of documents is included in the process.
+            </p>
+          </li>
+          <li>
+            <p class="question">
+              Name three workflows in RUP and explain them.
+            </p>
+            <p class="answer">
+              <b>Inception</b>: Initial idea, requirements, basic planning<br>
+              <b>Elaboration</b>: Software design (be aware of best pracitices: model visual, use continouos integration, control changesl, model visual, model architecture)<br>
+              <b>Construction</b>: Write code<br>
+              <b>Transition</b>: deploy software and maintain it<br>
+            </p>
+          </li>
+          <li>
+            <p class="question">
+              Explain the Waterfall model in your own words. Which types of projects are perfect for this process model?  
+            </p>
+            <p class="answer">
+             Waterfall uses these iterations to develop software. A step into a earlier phase is not possible.Waterfall tries <b>to fix bug early in the design phase</b>. (Long design phase in comparison to scrum).<br>
+             Waterfall is perfect for a small project with 1 or 2 people. They are able to communicate clear. They need an easy model that creates documents for them after each phase. The <b>lightness</b> of Waterfall is perfect for such a team.
+           </p>
+          </li>
+        </li>
+      </ol>
+      <h3>Configuration Management</h3>
+      <ol>
+        <li>
+          <p class="question">
+            What are the key differences between SVN and GIT? What are the pros and cons for using either. 
+          </p>
+          <p class="answer">
+            Key difference: <br><b>GIT is decentralized system</b><br><b>SVN is centralized</b>.<br>
+            Git is a centralized system, which means every developer has it's own repo. Commit everywhere everytime. 
+            Decentralized version control systems are more complex (example: 2 ways to "commit": local commit (git commit) and "remote commit" (git push)). 
+            Often used in open source world with many different projects: everyone is free to pick interesting changes from other projects. With the 'staging' it is also possible to simply commit a single file or line that has change (also if you are in a huge "chaotic" change). Easy fix of mistakes before you push, because you can manipulate your commits ahead as you want.<br>
+            SVN is a decentralized system, which means that you cannot commit changes if you have no internet connection. The code is stored on the server only, you do not have a local repository.
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            What is a change request form? What does it necessarily have to contain?
+            Why is it used?
+            What does a change request process look like in your project? (Fig. 13-14 in Bruegge book or Page 10 on the Configuration Management Slides - this is the picture of the workflow that we discussed and criticized in lecture) - what is missing in this diagram?
+          </p>
+          <p class="answer">
+            A change request form contians information about the change that you want to implement. The control board can then decide what to do with the request: Either the board rejects it or it approves the request. If it is approved, the reqeust is assigned to a person (developer). He will then implement it, commit it via version control. Finally the commit representing a feature gets controlled by the quality control team.<br>
+            A change request form contains different fields with different informations. These information may contain the advantage and the overvalue that the feature creates for the customer. Anyhow, it contains information about how the software behaviour should be changed.<br>
+            The Project Manager of the board decides weather the request is approved or declined. The board and the Account Manager (which have customer contact) communicate with the customer about the current change requests and their corresponding requirements.<br>
+            Ideally, all this is automated and emails are generated with status change of change request.
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            When two people work on different branches of the same software what kind of conflicts can arise? Is it easy to merge two or more people’s work?
+            Name three examples of how these conflicts can be minimized? 
+          </p>
+          <p class="answer">
+            Conflics can arise if both are working on the same software module, which is sometimes unavoidable. With a <b>good communication</b> and a propriate coordination the merge shouldn't be a problem.<br>
+            To keep track of version control: Use <b>small commits</b>. Commit your work <b>frequently</b> (Nighly Build).
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            search online for change request form. Which one do you think could be useful to a small project for you next semester assuming you might have a client. This form should be included in your online management platform next semester so keep in mind what is important for such a form and whether your tool will support this. Put the link to the form in your answer and explain why you like it, what you would change. 
+          </p>
+          <p class="answer">
+            <b>Bugzilla</b> is easy to use. It covers all necessary information (changes, assignee, related bugs, descriptions, related commits). Integrates well with version control and is widely used in open source world. It is easy to use and to set up.<br>
+            It should have a better <b>notification for stakeholders</b> about the status of change requests.
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            What kinds of changes do you have in a project? Therefore what changes do you need to track? (there are at least three general categories)
+          </p>
+          <p class="answer">
+            <b>Documents</b>: Document changes/represent use cases ...<br>
+            <b>Code</b>: Code changes in software<br>
+            <b>Model</b>: Architectural changes (Database, Domain Model)<br>
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            What is an artifact?
+          </p>
+          <p class="answer">
+            An artifact in software development is a <b>small part product</b>, produces <b>during software developement</b>. These artifacts can be: class diagramms, umls, models, compiled code or methods of software development like parts of xp.
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            If you want to use configuration management in a project you need to define: (finish the words that are started below correctly)
+          </p>
+          <p class="answer">
+            <b>Pro</b>cess management<br>
+            <b>Rol</b>es in the team<br>
+            <b>Work</b>flow for the development process<br>
+            Criteria for<br>
+            <b>Cha</b>nge management<br>
+            <b>Rel</b>ease mangement<br>
+          </p>
+        </li>
+        <li>
+          <p class="question">
+            What is a software release process? Is it complex? Does it have a process associated with it? Does it cost money
+          </p>
+          <p class="answer">
+            A software release is a well working "snapshot" of a software. It is delivered to the customer. This delivery can affect the whole company: IT, Marketing, Production, Sales.
+          </p>
+        </li>
+      </ol>
     </div>
   </body>
 </html>
-
-
 
 
 
@@ -161,6 +310,8 @@ tempate for question:
   </p>
 </li>
 
+
+Recall the diagram depicting the RUP methodology with the colored hills in multiple lines going across. Explain this diagram. X-axis, Y-axis, Regions, colored curves. Name three things that make RUP special in contrast to Waterfall process model.
  </ol>
 
 -->
