@@ -26,19 +26,24 @@
             Name and explain three Object Oriented Principles that are important in code design and thereby also in the use of patterns.
           </p>
           <p class="answer">
-            <b>inheritance</b>: Is-a relationship. (abstract) superclasses hold data and methods. These methods are equal to all specific implementations.<br>
-            <b>polymorphism</b>: Use of methods or classes that specific shape is not known by the caller. But with well defined method signature or class inheritance, it is possible to use specific implementations.<br>
-            <b>encapsulation</b>: Hiding data of the specific implementation by restricting the access. Accessors can access the data via predifined methods. These methods are defined by the class/object holding the data.<br>
-            <b>abstraction</b>: Defining abstraction in classes, methods, types, interfaces and functionality reduces complexity.
-          </p>
+            <ul>
+<li>Gegen ein Interface programmieren, um Abhängigkeiten zwischen Implementierungen zu vermeiden </li>
+
+<li>Komposition (has-a-Beziehung) statt Vererbung verwenden, um nicht die Kapselung einer Klasse mittels Vererbung zu zerstören.</li>
+
+<li>Trenne Code, der unterschiedliches macht</li>
+</ul>
         </li>
         <li>
           <p class="question">
             What is the difference between a Has-A and an Is-A relationship in various patterns. Name examples from a pattern that you know.
           </p>
           <p class="answer">
-            <b>Is-a</b>: Inheritance. The (abstract) parent class can only exist if there is a specific implementation. With A Building only exists if I create a House (that extends the building). A ski only exists if I create a Telemark, Snowboard or Carving ski.<br>
-            <b>Has-a</b>: Relationship. The type that holds a bunch of other objects, can hold 0, 1 or much more objects. The existence of the object does not depend on the object it holds. 1-200 people can enter a train. But the trains does not disappear if there is no person in the train.
+           
+Ein Is-A-Relationship entsteht durch Vererbung. <br>
+Ein Has-A-Relationship entsteht dadurch, dass eine Klasse eine Instanz einer anderen Klasse enthält. Dies ist zum Beispiel beim Decorator-Pattern der Fall.
+<br>
+<b>Sören fragen, genauer erklären wo das is-A has-A Realtionship in dem Pattern vorkommt.</b>
           </p>
         </li>
         <li>
@@ -59,6 +64,9 @@
             <b>Interface</b>: method signature definition to implement<br>
             <b>Abstract class</b>: Generalize behaviour and data in a class that can not be instanciated. Classes can extend the abstract class and they can (if they are not abstract) be instanciated. Can implement an Interface. Can extend abstract classes.<br>
             <b>Normal class</b>: Can be instanciated. Can implement an Interface. Can inherit from an interface, an abstract class and a normal class.
+	    <br>
+		Interfaces geben Methoden an, die von der Klasse, welche das Interface verwendet, implementiert werden müssen. <br>
+		Eine abstrakte Klasse kann Methoden implementieren, muss aber von einer normalen Klasse implementiert werden.
           </p>
         </li>
         <li>
@@ -66,7 +74,9 @@
             What is the idea behind the Singleton Pattern. How does it do that?
           </p>
           <p class="answer">
-            Is used if you only want to have one concrete instance of a class. It does that by providing a static access method to a private static class attribute of the class itself. You can only access the concrete instance by calling the method, wich will return you the one instance, hold by the class in a static context. 
+            Die Idee besteht darin, dass man auf einer Instanz einer Klasse arbeiten kann. Man arbeitet dabei immer auf der selben Instanz einer Klasse. Man kann dadurch vermeiden viele statische Methoden zu verwenden. <br>
+
+Die Singleton-Klasse verwaltet eine Instanz von sich selbst als statisches Attribut und hat einen privaten Konstruktor. Des Weiteren gibt es eine statische Methode die eine Instanz der Klasse erzeugt und diese in das Attribut schreibt. Eine neue Instanz wird dabei nur erzeugt, wenn das Attribut keinen Wert enthält/null ist.
           </p>
         </li>
         <li>
@@ -74,7 +84,7 @@
             You may or may not have prepared the Adapter pattern. Either way, if you hear the name, what could it possibly do and how could you go about separating the issues in two classes with an adapater class?  
           </p>
           <p class="answer">
-            Can "wrap" data structures. It "plugs" and can wrap a data structure from A to B for example. 
+Ein Adapter übersetzt Anfragen zwischen zwei Interfaces und ermöglicht dadurch Klassen, die normalerweise inkompatibel wären zusammen zu arbeiten.
           </p>
         </li>
         <li>
@@ -82,8 +92,14 @@
             Describe a pattern of your choice. Since you cannot draw the diagram here, explain it in words (so that someone else could draw it). Explain what it does ie. when to use it. Gang of Four Design Pattern always has a part called participants, where their function is explained.
           </p>
           <p class="answer">
-            <b>Factory</b>: Deals with object creation. It is a creational pattern.
-            Define an interface for creating an object. Let the the classes that implement the interface decide which class to instantiate. The Factory method lets a class defer instantiation to subclasses.
+            <b>Decorator</b>: <br>
+		<ul>
+
+<li>mithilfe des Decorator Patterns kann man anderes Verhalten dynamisch zu einem existierenden Objekt hinzufügen.</li>
+<li> Decorators können gestackt werden, d.h. man kann eine Klasse mit mehreren Decorators "verzieren" </li>
+<li> alternative zu Vererbung (was Funktionen zur Kompilierzeit hinzufügt und alle Instanzen einer Klasse betrifft): es können zusätzliche Funktionen/alternatives Verhalten zu einzelnen Objekten hinzugefügt werden.</li>
+</ul>
+Die Decorator-Klasse beinhaltet die erweiterte/dekorierte Klasse als Attribut und implementiert das selbe Interface wie diese. Sie kann einzelne Methoden dieser überschreiben bzw. an das Attribut weiter delegieren. 
           </p>
         </li>
       </ol>
@@ -94,13 +110,11 @@
             Many metrics can be extracted automatically from software. Name specific examples. However, what is the shortcoming of these automatically derived metrics?
           </p>
           <p class="answer">
-            A metric is a function which generates a numeric value from software code. It can be used to compare different software or to reveal bad programmed modules.<br>
-            <span class="panic"><b>balanced scorecard</b>: ????????????????????????????????????<br></span>
-            <b>test coverage</b>: percentage of the software that is coverd with unit tests.<br>
-            <b>lines of codes</b>: number of code lines for a method, class or module.<br>
-            <b>mccabe</b>: cyclomatic complexity. Complexity for of possible branches.<br>
-            <span class="panic"><b>cohesion</b>: Complexity of compositions in a module. Unstructured dependency graph.<br></span>
-            <span class="panic">WHAT IS THE DIFFERENCE BETWEEN COHESION AND COUPLING????</span>
+            Lines of Code, Cyclomatic Complexity, Duplicated code, Comments, code coverage, coding rules.<br>
+
+		Die Kaltkulation für Coupling und Cohesion ist schwierig und muss manuell überprüft werden.<br>
+
+		Des Weiteren kann man mit manchen Metriken ohne einen vergleich/Erfahrung/Durchschnittswerte kaum eine Aussage treffen. Es kommt z.T. 			auch sehr auf das Projekt darauf an, was welche Metriken in diesem Fall aussagen.
           </p>
         </li>
         <li>
@@ -108,18 +122,36 @@
             Which metric tool are you using in your project. Which metric did you decide to look at in more detail to see how it works for you? Be specific in how the metric helped you to see a shortcoming in your code. What was wrong, how can you fix it, was the tool correct?
           </p>
           <p class="answer">
-            I used <a href="http://metrics.sourceforge.net/">metrics</a> for eclipse. Especially the cyclomatic complexity helped me to reduce the loc of methods. It also helped me to refactor my code, use more patterns and create a better structure in my project. For example I could split one existing test case into several test cases.
+            Ich verwende FindBugs und Sonar in meinen Projekten. FindBugs, kann wie viele andere Tools (Checkstyle, PMD, Findbugs, Clover, Cobertura) in Sonar integriert werden. <br>
+Ein weiterer Punkt ist das Sonar sehr bekannt ist und von vielen verwendet wird.<br><br>
+
+In meinem Projekt möchte ich genauer auf Code Duplication und die Zyklomatische Komplexität schauen.<br><br>
+
+In einem konkreten Projekt (jBay Klausur) habe ich anhand der Zykliomstischen Komplexität festgestellt, dass die Bieten-Methode schlecht programmiert ist, da sie sehr viele if-else verzweigen und damit viele mögliche Pfade hat und daurch nicht intuitiv zu verstehen ist. Hier hatte das Tool durchaus recht.
+
+<span class="comment">Warum ist Sonar bekannt und allgemein verwendet?<br>
+Wie könnte man den Code ändern? </span>
           </p>
         </li>
         <li>
           <p class="question"> 
-            There are lots of people who disagree on which metrics to use and whether or not to use them. Based only on the first paragraph in the following two posts, 
-            can you reason why metrics are important and why it is important to extract these automatically.
-          </p>
-          <p class="answer">
-            Automatic metrics generation is helpful. This is also the key essence of codinghorror.com. He mentions that it helped him alot to use simple metrics like method size, method parameters or loc of classes/methods. Furthermore he emphasizes with the use of test coverage. Metrics can never be bad, and help if you are able to interpret the data returned by the metrics tool. He warns to use metric values for punishment or reward. But he suggests to use the metrics differences (before and after) as a value for measurements like "how could we improve the algorithm".
 
-            mccabe discusses the use of metrics when working with outsourced teams. The values could give an overview about the quality of code. This could for example help the product manager to evaluate the result of outsourced teams.
+Metrics werden nicht nur verwendet um die Qualität von eigenem Code zu betrachten, sondern auch um den Code von Dienstleitern zu betrachten. Dies ist einer der Hauptgründe für die Verwendung von Metrics. Man kann die Erreichung von speziellen Werten bei Metrics sogar im Vertrag mit den Dienstleistern festlegen.
+                </p>
+          <p class="answer">
+Sogar einfache Metriken helfen potentielle Problemstellen im Code zu finden, beispielsweiße:<br>
+<ul>
+<li> zu große/kleine Methoden/Klassen</li>
+<li> zu komplexe Methoden (gemessen an der cyclomatischen Komplexität).</li>
+<li> Methoden mit zu vielen Parametern (über 7 plus minus 2).</li>
+<li> Methoden mit zu vielen lokalen Variablen</li>
+<li> Klassen mit einer sehr tiefen Vererbungshierarchie</li>
+<li> sehr große Datentypen/Klassen </li>
+</ul>
+
+Einfache Metriken helfen Problemstellen im Code zu finden und dadurch kann ein manuelles Code-Review eventuell eingespart werden.<br>
+<span class="comment">Im letzten Satz:<br>
+Ich würde nicht sagen, eingespart sondern vielleicht eher unterstützt werden. </span>
           </p>
         </li>
         <li>
@@ -127,16 +159,398 @@
             There are several metrics that you should have come across while studying these. Out of these metrics choose 2 and describe what it means and what kinds of information about the software it reflects – you can use internet.
           </p>
           <p class="answer">
-            <b>loc</b>: Is an absolut value: lines of code in class/methode/programm. The lines of code in a specified range (method or class) in relation to another range (another method/class) can help to find bad software structures in the programm. Then a refactoring (with the use of appropriate software patterns  ) can help. It gets easier to identify such bad oo models. The absolute value of loc (of a software) can mislead because it is difficult to set two software projects in relation (do they really do the same -> is it worth to compare them?). LOC can also help to satisfy the "clean code" rules (like max 200 loc per class).<br>
-            <b>inheritance</b>: A lage amount of inheritance can indicate that "composition over inheritance" was sparesly used. A general refactoring and rethinking of the oo structure could help to tackle this problem.<br>
-            <b>complexity</b>: Complexity of algorithms (methods). mccabe indicates too much paths through the method/module.<br>
-            <span class="panic"><b>coupling</b>: amount of dependencies (logischer zusammenhang zwischen klassen/methoden/whatever???)<span><br>
-            <span class="panic"><br>cohesion</b>: von wie vielen methoden wird ein klassenattribut verwendet</span><br>
+<b>Komplexität</b><br>
+Cyklomatische Complexität:<br>
+
+Die zyklomatische Komplexität weißt auf die Komplexität eines Programmes hin.<br>
+Sie wird gemessen indem man die unterschiedlichen, von einander unabhängigen Pfade durch ein Programm/eine Methode zählt.<br>
+
+<b>Coupling:</b><br>
+Man betrachtet die Komplexität einer Kommunikationsstruktur zwischen Klassen und Methoden innerhalb und außerhalb eines Packages. Wie viele Parameter und Rückgabewerte gibt es?
           </p>
         </li>
       </ol>
       <h3>Testing</h3>
-      Coming soon...
+	<ol>
+	<li>
+                <p class="question">
+ The scenarios for test cases are derived from the use case activity diagram. Therefore this diagram appears in both documents. How do you design your test cases around this activity diagram?
+
+          </p>
+          <p class="answer">
+Man erstellt die Test Cases so, dass alle mÃ¶glichen Wege durch das Activity Diagramm durch einen Test abgedeckt werden.
+<span class="comment">this may cause additional paths through the use case activity diagram because the thinking changes from functional to testing to break the system.</span>
+
+	  </p>	</li>
+	<li>
+                <p class="question">
+ What is roughly the difference between a test stub and a test driver
+          </p>
+          <p class="answer">
+
+<b>Driver:</b><br>
+<ul>
+<li> ruft zu testende Module auf</li>
+</ul>
+<b>Stub:</b>
+<ul>
+<li> wird vom zu testenden Modul benötigt</li>
+<li> gibt Dummy-Daten zurück </li>
+<li> simuliert erwartetes verhalten</li>
+</ul>
+	  </p></li>
+<li>
+                <p class="question">
+When are tests performed? How much total time in a project should be devoted to testing?
+          </p>
+          <p class="answer">
+		Während des gesamten Entwicklungsprozesses und nach der Fertigstellung des Projektes. Man sollte bis zu 50% der Zeit fÃ¼r Tests verwenden.
+	  </p>
+</li>
+<li>                <p class="question">
+Which tests can be automized?<br>
+Bonus: Which tool would you use for automatic testing.
+          </p>
+          <p class="answer">
+		Unit tests, integration tests, system tests. <br>
+		For unit tests and integration tests I use JUnit with InfiniteTest.
+	  </p>
+</li><li>
+          <p class="question">
+		How do you document and plan for tests?<br>
+		<ul>
+<li>Test plan</li>
+<li>Test case</li>
+<li>Test workflow (see details below)</li>
+</ul>
+Explain what each of these is, how each of these are used.<br>
+--------------------------------------------------------------------------------------------
+Test workflow refers to the RUP methodology for project management.<br>
+http://en.wikipedia.org/wiki/IBM_Rational_Unified_Process<br>
+Go to RUP building blocks. (Answer: It is a means of categorizing and planing for testing in the project plan. - since most likely you haven't covered the Management column yet)
+          </p>
+          <p class="answer">
+		<p>Ein Test-Plan ist ein Plan, der einen systematischen Ansatz zum Testen eines Systems bereitstellt. Er enthÃ¤lt die Definition des gesamten Testprozesses und wird je Teststufe aktualisiert und konkretisiert.</p>
+
+<p>Ein Test case ist ein wichtiger, funktionaler Softwaretest, der die einzelnen in den Spezifikationen versprochenen Eigenschaften testet.</p>
+
+<p>Beim Workflow Test wird der Fluss der Benutzerinteraktion getestet. Dabei wird darauf geachtet, dass der Benutzer möglichst intuitiv und schnell durch das Programm geführt werden kann. Diese Tests werden meist von Personen durchgeführt, die sich kaum oder noch gar nicht mit dem Workflow beschäftigt haben.</p>	
+<p><span class="comment">Mit Workflow Test ist in diesem Fall gemeint, dass im Projektmanagement Zeit fÃ¼r Testing explizit eingerechnet wird. <span></p>	
+	  </p>
+</li><li>
+	<p class="question">
+	Write down at least five different test types. Include and mark the test in your list which is worth most of the money and performed by the client. (Example; Unit test, security test, ... ) 	
+	</p>
+	<p class="answer">
+	<ul>
+<li>Functional Testing</li>
+<li>Performance Testing</li>
+<li>Stress Testing</li>
+<li>Configuration testing</li>
+<li>Compatibility test</li>
+<li>Timing testing</li>
+<li>Security testing</li>
+<li>Environmental test</li>
+</ul>
+Acceptance Testing (money, client)</br>
+<span class="comment">For additional information, since I didn't ask for this explicitly:<br>
+Acceptance involves client. So that is the point where you find out whether you did the right thing, as opposed to whether what you did works. You can make sure that Acceptance and Functional Test are similar by using an iterative approach during project work and involving the client on a regular basis. </span>
+	</p>
+</li>
+<li>
+  <p class="question">
+	Who writes the acceptance test? When can it be written? (Bonus: is there a software that can automate this??)
+  </p>
+
+  <p class="answer">
+Der Acceptance Test wird vom Kunde geschrieben.<br>
+Benutzer eines Systems fÃ¼hren den Test durch, welche Entwickler aus dem Kundenvertrag oder den Benutzeranforderungen (user requirement specification) ableiten.<br>
+
+Die Test kÃ¶nnen also direkt nachdem die Spezifikation geschrieben ist erstellt werden, wenn das Wasserfall-Modell verwendet wird oder nach jedem Sprint Planning bei SCRUM.<br>
+<span class="comment">General remarks:<br>
+You will want to avoid having the customer test only once towards the end to avoid any surprises. You may not be able to get the customer to test in regular intervals to avoid such surprise. In that sense, automation helps. 
+</span>
+  </p>
+</li>
+<li>
+  <p class="question">
+	Which components make up a test case?
+  </p>
+
+  <p class="answer">	
+	<ul>
+<li> Location</li>
+<li> zu testende Features</li>
+<li> Feature Pass/Fail Criteria (Test Oracle)</li>
+<li> Handlungen, die zur DurchfÃ¼hrung des Testfalls notwendig sind</li>
+<li> Eingabedaten</li>
+<li> PrÃ¼fanweisungen</li>
+<li> Activity Diagram</li>
+</ul>
+  </p>
+</li>
+</ol>
+
+      <h2>Communication</h2>
+      <h3>Use Cases</h3>
+      <ol>
+        <li>
+          <p class="question">
+	  What is the point of the system boundary?
+	  </p>
+	
+          <p class="answer">
+	Es geht darum festzulegen, was zu dem Scope für ein Projekt gehört und was nicht.<br>
+Man schließt spezielle Use Cases von Anfang an aus dem Scope aus (Out of Scope), um sich nicht zu viel vorzunehmen. Das macht man anhand einer realistischen Einschätzung, wie viel Zeit für die einzelnen Use Cases benötigt.
+	  </p>
+	</li>
+	
+        <li>
+          <p class="question">
+	If you were to draw the activity diagram of a login use case, describe how you would do that. Explain the difference between the main path and alternative paths.<br>
+Explain what a alternative path is and try to obtain it to the login use case
+	  </p>
+	
+          <p class="answer">
+		Ich würde zunächst mit einer Aktivität z.B. Login Seite aufrufen beginnen und von dort aus den Hauptpfad weiter ausbauen. Z.B. Username und Passwort eingeben, Login drücken, Identität des Benutzer überprüfen, falls korrekt Identität bestätigen, ...<br>
+Alternative Pfade sind Pfade, die in Ausnahmefällen auftreten, hier könnte es zum Beispiel sein, dass kein Konto mit dem angegebenen Benutzernamen existiert oder, dass das Passwort nicht stimmt.
+	  </p>
+	</li>
+
+
+        <li>
+          <p class="question">
+		Give an example of a use case that could be part of your project idea for next semester (remember that a name for a use case includes a verb representing the user goal for that use case). Do not use Login. Describe the Use Case with a narrative.
+	  </p>
+	
+          <p class="answer">
+		
+<b>Beispiel Usecase:</b>
+Spielstand speichern<br>
+<ol>
+<li>
+1. Annahmen<br>
+Der Spieler ist eingeloggt.
+</li>
+<li>
+2. Pre-Condition<br>
+Der Benutzer hat ein Spiel begonnen.
+</li>
+
+<li>
+3. Use Case Initiation<br>
+Der Benutzer öffnet das Menu und drückt auf Speichern.
+</li>
+
+<li>
+4. Process<br>
+Der Spielstand wird zum späteren weiterspielen gespeichert.
+</li>
+
+<li>
+5. Use Case Termination<br>
+Dem Spieler wird eine Meldung über den Erfolg/Misserfolg angezeigt.
+</li>
+
+<li>
+6. Post-conditions<br>
+Nach dem Speichern sieht der Spieler wieder das Menü.
+</li>
+</ol>
+<span class="comment">pre- und post- conditions werden programmiert.<br>
+Ich nehme an, dass Ihre Precondition nicht wirklich programmiert werden muss sondern eher eine assumption ist. </span>
+	  </p>
+	</li>
+
+
+        <li>
+          <p class="question">
+ Name five components of the (overall) Use Case Diagram.  
+	  </p>
+	
+          <p class="answer">
+System, Actor, Dependency, Generalization, Association
+	  </p>
+	</li>
+        <li>
+          <p class="question">
+What does UML stand for? 
+	  </p>
+	
+          <p class="answer">
+
+Unified Modeling Language
+Es handelt sich dabei um einen Standard zur Erstellung von Modellen für objektorientierte Sotware. UML standardisiert die Notation, aber nicht wie man sie anwendet.
+	  </p>
+	</li>
+
+
+        <li>
+          <p class="question">
+There are three main categories of UML diagrams that are mentioned in the slides. What are these categories called and how do they differ? Name specific UML diagrams for each of the categories.
+	  </p>
+	
+          <p class="answer">
+<p>
+<b>Funktionell: dokumentiert einen Prozess</b><br>
+Use Case Diagramm konzentriert sich auf das Ziel eines Prozesses (Annahmen (ungetestete Vorraussetzungen), Vorraussetzungen (getestet), Use Case<br> Initiation(?), Prozess (Acitivity Diagramm), Use Case Termination, Post-Conditions)<br>
+Activity Diagramm
+</p>
+<p>
+<b>Statisch: stellen ein Programmdesign dar, zum Beispiel die Klassenhierarchie</b><br>
+Class Diagramm<br>
+Object Diagramm
+</p>
+<p>
+<b>Dynamisch:Beschreiben den Ablauf eines Programmes. Welche Schritte werden nacheinander durchgeführt.</b><br>
+Sequence Diagramm<br>
+Collaboration Diagramm<br>
+State Chart Diagramm
+</p>
+	  </p>
+	</li>
+
+
+        <li>
+          <p class="question">
+		Which UML diagrams are primarily targeted at the client for purpose of communication?
+	  </p>
+	
+          <p class="answer">		
+		Use Case Diagramms
+		<span class="comment">functional </span>
+	  </p>
+	</li>
+
+</ol>
+<h3>Function Points</h3>
+<ol>
+        <li>
+          <p class="question">
+		What are function points? How are they used and when are they calculated? 
+	  </p>
+	
+          <p class="answer">		
+Function points sind eine Maßeinheit für den Aufwand von Kundenanforderungen. Sie werden für die Zeitplanung verwendet und eignen sich nur zur Abschätzungen von Kundenanforderungen, die der Kunde sehen kann. Nach der Erstellung eines User Requirements Documents können die Function Points berechnet werden.
+	  </p>
+	</li>
+
+        <li>
+          <p class="question">
+		Which five pieces of information do you need in order to calculate FP? Explain them and then caclulate the FP using the login example.
+	  </p>
+	
+          <p class="answer">
+		<ol>
+		<li>
+		External Input: VorgÃ¤nge die Daten auÃerhalb der Application Boundary einlesen und Internal Logical Files aktualisieren.
+		</li>
+<li>
+External Output: Berechnete Informationen, die dem User prÃ¤sentiert werden. Zum Beispiel komplexe Berichte und Diagramme.
+</li>
+<li>
+External Query: Einzelne Anfrage zur Datenbeschaffung. Zum Beispiel einfache Berichte ohne Berechnung, dynamische Auswahllisten und Kontextsensitive Hilfen.
+</li><li>
+External Interface Files: Referenzierte Dateien, die sich nicht unter der Kontrolle der Anwendung befinden. Zum Beispiel PrÃ¼fung von Kreditkarteninformationen.
+</li><li>
+Internal Logical Files: Dateien und Datenbanken, die direkt von der Anwendung manipuliert werden kÃ¶nnen.
+</li>
+Login Beispiel:<br>
+1 External Query (LOW=3) + 1 Internal Logical File(LOW=7) = 10 FP
+<br>
+<span class="panic">Explain them and then caclulate the FP using the login example. Ask Sören!</span>
+	  </p>
+	</li>
+
+        <li>
+          <p class="question">
+		How do you know whether the points to weigh input, output, etc. with are for minimal, medium or high complexity?<br>
+Refer for example to youtube movie where this is explained in great detail.<br>
+(also written up in: http://computing.unn.ac.uk/staff/cgpv1/downloadables/fpa.pdf) 
+	  </p>
+	
+          <p class="answer">
+		Die Komplexität wird mithilfe von zwei Kenngrößen anhand einer Tabelle ermittelt:<br>
+	<ol>
+<li>
+File type References: Die Anzahl der referenzierten Dateien. Dabei zÃ¤hlen sowohl Internal Logical Files als auch External Interface Files.
+</li>
+<li>
+Data Element types: Die Anzahl von Feldern und Attributen. Dabei zählen auch Fremdschlüssel und automatisch generierte Felder, solange der Benutzer diese sieht. Bei Diagrammen zÃ¤hlen zusÃ¤tzlich auch Summenfelder.
+</li>
+	  </p>
+	</li>
+
+        <li>
+          <p class="question">
+	For each Use Case you can calculate the corresponding FP.<br>
+Then you finish 10 Use Cases for which you now collect the following information:<br>
+<ul>
+<li>Use Case</li>
+<li>FP</li>
+<li>time spent to implement</li>
+</ul>
+
+Now you start a new Use Case and you need to implement it. FIrst you calculate the FP.<br>
+How will you know based on your past experience and information how long it will take you to implement this new Use Case?<br>
+<br>
+Deutsch:<br>
+Wenn ich sagen wir mal 5 Use Cases programmiert habe und dafür FP und ZeitabschÃ¤tzung schon kenne. Wie kann ich diese Information nutzen, um für Use Case #6 eine Zeitabschätzung zu generieren? FP habe ich für Use Case #6 schon ausgerechnet. Was muss ich machen? Wie kann ich von der Vorarbeit Use Case 1-5 profitieren? 
+	  </p>
+	
+          <p class="answer">
+Mithilfe einer Regression kann ich den funktionalen Zusammenhang zwischen Function Points und Zeitbedarf quantifizieren. Die daraus resultierende Funktion ermöglicht mir eine Zuordnung von Function Points zur benötigten Zeit, um einen UseCase mit einer bestimmten Anzahl von Function Points zu implementieren.
+<span class="comment">Regression auf Basis von Erfahrungswerten </span>
+	  </p>
+	</li>
+	</ol>
+	<h3>Reverse Engineering</h3>
+<ol>        
+<li>
+          <p class="question">
+What is Reverse Engineering?
+	  </p>
+	
+          <p class="answer">
+
+Es geht darum aus einem fertigen Modell/Produkt wieder einen Plan zu erstellen. Zum Beispiel die Funktionsweise einer Software zu verstehen, indem man von (Teilen von ) ihr UML-Diagramme erstellt.
+	  </p>
+	</li>
+<li>
+          <p class="question">
+Why would you reverse engineer code? 
+	  </p>
+	
+          <p class="answer">
+Um bestehenden Code besser zu verstehen und dadurch meine Programmierfähigkeiten zu verbessern oder um Dokumentation zu bestehendem Code zu erstellen.
+	  </p>
+	</li>
+<li>
+          <p class="question">
+How does the UML tool help you understand and document the code? Give one specific example.
+
+After answering this question, make sure to go to the place where you upload the picture for a reverse engineered UML diagram for the calculator code listed after this quiz. 
+	  </p>
+	
+          <p class="answer">
+<p>
+Das UML-Tool hilft den Aufbau eines Programmes zu verstehen.
+Es lassen sich beispielsweise Design Patterns einfacher als im Code erkennen und man kann sich schnell einen Überblick über den Code verschaffen.
+</p><p>
+Mithilfe des UML Tools habe ich bei dem Calculator von Sören und mir unterschiedlichste Pattern, wie zum Biespiel das Observer Pattern.
+Das Display beobachtet hier die PocketCalculator Klasse und bekommt ein DisplayChangedEvent sobald sich etwas ändert. 
+</p>
+	  </p>
+	</li>
+
+</ol>
+
+
+
+
+
+
+
       <h2>Project Management</h2>
       <h3>Process</h3>
       <ol>
@@ -210,6 +624,9 @@
              Waterfall uses these iterations to develop software. A step into a earlier phase is not possible.Waterfall tries <b>to fix bug early in the design phase</b>. (Long design phase in comparison to scrum).<br>
              Waterfall is perfect for a small project with 1 or 2 people. They are able to communicate clear. They need an easy model that creates documents for them after each phase. The <b>lightness</b> of Waterfall is perfect for such a team.
            </p>
+
+
+
           </li>
         </li>
       </ol>
